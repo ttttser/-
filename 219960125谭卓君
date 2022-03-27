@@ -1,0 +1,38 @@
+#include"stdio.h"
+#define N 20
+main()
+{
+ double  s=0;
+ char *p;
+ char a[N],b[N];
+gets(a);
+p=&a[0];
+p++;
+if(*p=='+')
+   s=s+(*(p-1)-48)+(*(p+1)-48);
+   else if(*p=='-')
+   s=s+(*(p-1)-48)-(*(p+1)-48);
+   else if(*p=='*')
+   s=s+(*(p-1)-48)*(*(p+1)-48);
+   else if(*p=='/')
+   s=s+(double)(*(p-1)-48)/(double)(*(p+1)-48);
+   p=p+2;
+ while(1)
+ {
+   if(*p=='+')
+   s=s+(*(p+1)-48);
+   else if(*p=='-')
+   s=s-(*(p+1)-48);
+   else if(*p=='*')
+   s=s*(*(p+1)-48);
+   else if(*p=='/')
+   s=s/(double)(*(p+1)-48);
+   p=p+2;
+   if(*p=='\0')
+   break;
+ }
+ printf("%.2lf",s);
+}
+   
+   
+   
